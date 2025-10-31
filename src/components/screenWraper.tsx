@@ -1,0 +1,19 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
+export default function ScreenWrapper({children, bg}: any) {
+
+    const {top} = useSafeAreaInsets();
+    const paddingTop = top>0 ? top+5 : 0; 
+
+  return (
+    <View style={{flex:1, paddingTop, backgroundColor:bg }}>
+      {
+      children
+      }
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({})
