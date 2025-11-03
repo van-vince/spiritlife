@@ -1,8 +1,52 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Slot } from 'expo-router'
+import React, { useEffect } from 'react'
+import { Slot, useRouter } from 'expo-router'
+import { AuthProvider, useAuth } from '../../context/authContext'
+import { supabase } from '../../lib/supabase'
 
-export default function _layout() {
+
+
+
+const _layout = () => {
+
+  return (
+
+    <AuthProvider>
+        <Mainlayout />
+    </AuthProvider>
+  )
+  
+}
+
+
+export default function Mainlayout() {
+
+  
+// const {setAuth} = useAuth();
+
+// const router = useRouter();
+
+
+//   useEffect(() => {
+    
+//    supabase.auth.onAuthStateChange((_event, session) => {
+      
+//     console.log('session :', session?.user?.id)
+
+//     if(session) {
+//       setAuth(session?.user)
+//       router.replace('/home')
+
+//     } else {
+//       setAuth(null)
+//       router.replace('/welcome')
+//     }
+
+//     })
+    
+//   }, [])
+  
+
   return (
    <Slot />
   )
