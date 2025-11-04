@@ -48,7 +48,7 @@ export default function SignUp() {
         
         setLoading(false)
 
-        console.log("session: ", session)
+        console.log("s: ", session)
         // console.log("error: ", error)
 
         if (error) Alert.alert(error.message)

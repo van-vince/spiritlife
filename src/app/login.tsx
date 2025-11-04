@@ -32,14 +32,14 @@ export default function Login() {
 
         setLoading(true);
 
-        const {error} = await supabase.auth.signInWithPassword({
+        const {data: {session}, error} = await supabase.auth.signInWithPassword({
             email,
             password
         });
         
         setLoading(false)
 
-        console.log("error: ", error)
+        console.log("ses: ", session)
 
         if (error) Alert.alert(error.message)
     }

@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { Slot, useRouter } from 'expo-router'
-import { AuthProvider, useAuth } from '../../context/authContext'
+import  AuthProvider, { useAuth }  from '../../context/authContext'
 import { supabase } from '../../lib/supabase'
+import { getUserdata } from '../../services/userService'
 
 
 
 
+// wrapping main layout with Authprovider
 const _layout = () => {
 
   return (
@@ -20,32 +22,38 @@ const _layout = () => {
 
 
 export default function Mainlayout() {
-
   
-// const {setAuth} = useAuth();
+const {setAuth, setUserData} = useAuth();
 
-// const router = useRouter();
+const router = useRouter();
 
 
-//   useEffect(() => {
-    
-//    supabase.auth.onAuthStateChange((_event, session) => {
+// Getting auth change state and routing after login
+  useEffect(() => {
+  
+   supabase.auth.onAuthStateChange((_event, session) => {
       
-//     console.log('session :', session?.user?.id)
+    if(session) {
+      setAuth(session?.user)
+      updatedUserData(session?.user)
+      router.replace('/home')
 
-//     if(session) {
-//       setAuth(session?.user)
-//       router.replace('/home')
-
-//     } else {
-//       setAuth(null)
-//       router.replace('/welcome')
-//     }
-
-//     })
+    } else {
+      setAuth(null)
+      router.replace('/welcome')
+    }
+    })
     
-//   }, [])
-  
+  }, [])
+
+
+// Getting data from public users table and setting it to setUserdata to
+// be used in user profile
+  const updatedUserData = async (user: any) => {
+    let res = await getUserdata(user?.id)
+    if(res.success) setUserData(res.data)
+      // console.log(res.data)
+  }
 
   return (
    <Slot />
