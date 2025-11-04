@@ -51,7 +51,7 @@ const router = useRouter();
 // be used in user profile
   const updatedUserData = async (user: any) => {
     let res = await getUserdata(user?.id)
-    if(res.success) setUserData(res.data)
+    if(res?.success) setUserData(res.data)
       // console.log(res.data)
   }
 
