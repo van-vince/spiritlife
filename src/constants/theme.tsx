@@ -9,7 +9,7 @@ export const theme = {
 
         text: '#494949',
         textLight:'#7c7c7c',
-        taxtDark: '#1d1d1d',
+        textDark: '#1d1d1d',
 
         rose: '#ef4444',
         roseLight: '#f87171',

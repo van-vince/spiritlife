@@ -1,9 +1,10 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
-import { Slot, useRouter } from 'expo-router'
+import { Slot, Stack, useRouter } from 'expo-router'
 import  AuthProvider, { useAuth }  from '../../context/authContext'
 import { supabase } from '../../lib/supabase'
 import { getUserdata } from '../../services/userService'
+import ScreenWrapper from '../components/screenWraper'
 
 
 
@@ -52,11 +53,11 @@ const router = useRouter();
   const updatedUserData = async (user: any) => {
     let res = await getUserdata(user?.id)
     if(res?.success) setUserData(res.data)
-      // console.log(res.data)
+      // console.log(res?.data)
   }
 
   return (
-   <Slot />
+      <Slot />
   )
 }
 

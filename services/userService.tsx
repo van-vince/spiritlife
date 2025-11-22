@@ -19,4 +19,5 @@ export const getUserdata = async (userId: string) => {
         console.log('get error', error)
         return {success: false, msg: error.message}
     }
+
 }

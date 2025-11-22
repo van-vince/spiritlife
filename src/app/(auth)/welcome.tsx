@@ -1,10 +1,10 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ScreenWrapper from '../components/screenWraper'
+import ScreenWrapper from '../../components/screenWraper'
 import { StatusBar } from 'expo-status-bar'
-import { hp, wp } from '../helpers/common'
-import { theme } from '../constants/theme'
-import Button from '../components/Button'
+import { hp, wp } from '../../helpers/common'
+import { theme } from '../../constants/theme'
+import Button from '../../components/Button'
 import { useRouter } from 'expo-router'
 
 export default function Welcome() {
@@ -16,7 +16,7 @@ export default function Welcome() {
       <StatusBar style='dark' />
       <View style={styles.container}>
         {/* welcome image */}
-        <Image style={styles.welcomeImage} resizeMode='contain'  source={require('../../assets/srmLogo.jpeg')} />
+        <Image style={styles.welcomeImage} resizeMode='contain'  source={require('../../../assets/srmLogo.jpeg')} />
 
         {/* title */}
         <View style={{gap:20 }}>

@@ -1,15 +1,15 @@
 import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useRef, useState } from 'react'
-import ScreenWrapper from '../components/screenWraper'
-import BackButton from '../components/backButton'
+import ScreenWrapper from '../../components/screenWraper'
+import BackButton from '../../components/backButton'
 import { useRouter } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { hp, wp } from '../helpers/common'
-import { theme } from '../constants/theme'
-import Input from '../components/input'
+import { hp, wp } from '../../helpers/common'
+import { theme } from '../../constants/theme'
+import Input from '../../components/input'
 import Ionicons from '@expo/vector-icons/Ionicons';
-import Button from '../components/Button'
-import { supabase } from '../../lib/supabase'
+import Button from '../../components/Button'
+import { supabase } from '../../../lib/supabase'
 
 
 export default function Login() {
